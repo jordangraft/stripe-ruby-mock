@@ -123,6 +123,7 @@ module StripeMock
 
     def self.mock_charge(params={})
       charge_id = params[:id] || "ch_1fD6uiR9FAA2zc"
+      source_id = params[:source_id] || "test_cc_default"
       {
         id: charge_id,
         object: "charge",
@@ -141,6 +142,7 @@ module StripeMock
         statement_descriptor: "Charge #{charge_id}",
         status: 'succeeded',
         source: {
+          id: source_id,
           object: "card",
           last4: "4242",
           type: "Visa",
